@@ -1,8 +1,11 @@
 import Fastify from 'fastify';
+import cors from '@fastify/cors';
 import { PrismaClient } from '@prisma/client';
 
 const app = Fastify();
 const prisma = new PrismaClient(); // faz a conexão com todas as tabelas do bd
+
+app.register(cors);
 
 app.get('/bd-test', async () => {
   const habits = await prisma.habit.findMany({
