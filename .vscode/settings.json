@@ -4,6 +4,7 @@
     "package",
     "server",
     "prisma",
-    "config"
+    "config",
+    "readme"
   ]
 }
