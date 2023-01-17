@@ -4,14 +4,15 @@ Curso intensivo e de graça da [Rocketseat](https://www.rocketseat.com.br/) e mi
 Nessa edição, será desenvolvido um tracker de hábitos para o usuário poder colocar em prática as suas resoluções de metas. Registrando diariamente a evolução de seus hábitos.
 
 Tecnologias que serão usadas:
+- NodeJs
+- Fastify
+- Prisma
+- Vite
 - React
 - React Native
-- NodeJs
 - TypeScript
 - Expo
 - TailwindCSS
-- Prisma
-- Fastify
 
 [Figma](https://www.figma.com/file/MxsxaQ1h4DJ2WzlfaVAmQL/Habits-(i)-(Community)?node-id=6%3A343&t=gp6c70IOkxDUjowq-1)
 
