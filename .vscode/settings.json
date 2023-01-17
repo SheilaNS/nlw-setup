@@ -5,6 +5,8 @@
     "server",
     "prisma",
     "config",
-    "readme"
+    "readme",
+    "web",
+    "tailwindcss"
   ]
 }
