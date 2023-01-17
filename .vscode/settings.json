@@ -1,0 +1,9 @@
+{
+  "conventionalCommits.scopes": [
+    "gitignore",
+    "package",
+    "server",
+    "prisma",
+    "config"
+  ]
+}
