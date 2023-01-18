@@ -9,9 +9,9 @@ Tecnologias que serão usadas:
 - Prisma
 - Vite
 - React
+- Expo
 - React Native
 - TypeScript
-- Expo
 - TailwindCSS
 
 [Figma](https://www.figma.com/file/MxsxaQ1h4DJ2WzlfaVAmQL/Habits-(i)-(Community)?node-id=6%3A343&t=gp6c70IOkxDUjowq-1)
