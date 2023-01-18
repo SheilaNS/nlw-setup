@@ -1,17 +1,18 @@
 # NLW - Setup - Trilha ignite
-Curso intensivo e de graça da [Rocketseat](https://www.rocketseat.com.br/) e ministrada pelo [Diego Fernandes](https://github.com/diego3g).
+Curso intensivo e de graça da [Rocketseat](https://www.rocketseat.com.br/) e ministrada pelo [Diego Fernandes](https://github.com/diego3g) e [Rodrigo Gonçalves](https://github.com/rodrigorgtic).
 
 Nessa edição, será desenvolvido um tracker de hábitos para o usuário poder colocar em prática as suas resoluções de metas. Registrando diariamente a evolução de seus hábitos.
 
 Tecnologias que serão usadas:
-- React
-- React Native
 - NodeJs
-- TypeScript
-- Expo
-- TailwindCSS
-- Prisma
 - Fastify
+- Prisma
+- Vite
+- React
+- Expo
+- React Native
+- TypeScript
+- TailwindCSS
 
 [Figma](https://www.figma.com/file/MxsxaQ1h4DJ2WzlfaVAmQL/Habits-(i)-(Community)?node-id=6%3A343&t=gp6c70IOkxDUjowq-1)
 

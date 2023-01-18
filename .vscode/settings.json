@@ -1,0 +1,14 @@
+{
+  "conventionalCommits.scopes": [
+    "gitignore",
+    "package",
+    "server",
+    "prisma",
+    "config",
+    "readme",
+    "web",
+    "tailwindcss",
+    "expo",
+    "mobile"
+  ]
+}
