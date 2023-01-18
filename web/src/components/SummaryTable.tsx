@@ -1,6 +1,10 @@
+import { generateRangeDates } from "../utils/generate-range-dates";
 import { HabitDay } from "./HabitDay";
 
 const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
+const summaryDates = generateRangeDates();
+const minSummaryDates = 18 * 7;
+const daysToFill = minSummaryDates - summaryDates.length;
 
 export function SummaryTable() {
   return (
@@ -17,22 +21,16 @@ export function SummaryTable() {
       </div>
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
-        <HabitDay />
+        {summaryDates.map((date) => (
+          <HabitDay key={date.toString()} />
+        ))}
+        {daysToFill > 0 &&
+          Array.from({ length: daysToFill }).map((_, i) => (
+            <div
+              key={i}
+              className="w-10 h-10 bg-zinc-900 border-2 border-zinc-800 rounded-lg opacity-40 cursor-not-allowed"
+            ></div>
+          ))}
       </div>
     </div>
   );
