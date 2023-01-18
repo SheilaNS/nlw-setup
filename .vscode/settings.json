@@ -8,6 +8,7 @@
     "readme",
     "web",
     "tailwindcss",
-    "expo"
+    "expo",
+    "mobile"
   ]
 }
