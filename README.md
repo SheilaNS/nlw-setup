@@ -17,7 +17,7 @@ Tecnologias que serão usadas:
 [Figma](https://www.figma.com/file/MxsxaQ1h4DJ2WzlfaVAmQL/Habits-(i)-(Community)?node-id=6%3A343&t=gp6c70IOkxDUjowq-1)
 
 ## [Aula 01](https://github.com/SheilaNS/nlw-setup/tree/class-1): Iniciando o projeto de ponta a ponta
-## Aula 02: Agvançando o back-end e front-end
+## [Aula 02](https://github.com/SheilaNS/nlw-setup/tree/class-2): Agvançando o back-end e front-end
 ## Aula 03: Finalizando o layout web e mobile
 ## Aula 04: Conectando a API
 ## Aula 05: O próximo nível
