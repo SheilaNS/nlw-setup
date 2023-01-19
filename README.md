@@ -18,6 +18,6 @@ Tecnologias que serão usadas:
 
 ## [Aula 01](https://github.com/SheilaNS/nlw-setup/tree/class-1): Iniciando o projeto de ponta a ponta
 ## [Aula 02](https://github.com/SheilaNS/nlw-setup/tree/class-2): Agvançando o back-end e front-end
-## Aula 03: Finalizando o layout web e mobile
+## [Aula 03](https://github.com/SheilaNS/nlw-setup/tree/class-3): Finalizando o layout web e mobile
 ## Aula 04: Conectando a API
 ## Aula 05: O próximo nível
