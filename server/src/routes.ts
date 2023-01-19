@@ -62,12 +62,67 @@ export async function appRoutes(app: FastifyInstance) {
       }
     });
 
-    const completeedHabits = day?.dayHabits.map((dayHabit) => dayHabit.id);
+    const completedHabits = day?.dayHabits.map((dayHabit) => dayHabit.id);
 
     return {
       possibleHabits,
-      completeedHabits
+      completedHabits
     };
+  });
+
+  app.patch('/habits/:id/toggle', async (request) => {
+    // valida o id como string e uuid
+    const toggleHabitsParams = z.object({
+      id: z.string().uuid(),
+    });
+
+    const { id } = toggleHabitsParams.parse(request.params); // pega o id do params da URL
+
+    const today = dayjs().startOf('day').toDate(); // pega o dia atual
+
+    // procura na tabela day o dia atual
+    let day = await prisma.day.findUnique({
+      where: {
+        date: today,
+      }
+    });
+
+    // se o dia atual não existir na tabela day, criamos o dia
+    if (!day) {
+      day = await prisma.day.create({
+        data: {
+          date: today,
+        }
+      });
+    }
+
+    // procura o registro na tabela dayHabit
+    const dayHabit = await prisma.dayHabit.findUnique({
+      where: {
+        day_id_habit_id: {
+          day_id: day.id,
+          habit_id: id,
+        },
+      },
+    });
+
+    // verifica se esse registro existe
+    if (dayHabit) {
+      // deleta o registro da tabela dayHabit
+      await prisma.dayHabit.delete({
+        where: {
+          id: dayHabit.id,
+        },
+      });
+    } else { 
+      // adiciona o id na tabela dayHabit, isto é, completa o hábito
+      await prisma.dayHabit.create({
+        data: {
+          day_id: day.id,
+          habit_id: id,
+        }
+      });
+    }
   });
 }
 
