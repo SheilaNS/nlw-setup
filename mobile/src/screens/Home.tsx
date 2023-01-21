@@ -7,21 +7,21 @@ import { Header } from "../components/Header";
 import { Loading } from "../components/Loading";
 import { DAY_SIZE, HabitDay } from "../components/HabitDay";
 
-const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
-const summaryDates = generateRangeDates();
-const minSummaryDates = 18 * 5;
-const daysToFill = minSummaryDates - summaryDates.length;
+const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"]; // array de dias da semana
+const summaryDates = generateRangeDates(); // array de dias desde o início do ano
+const minSummaryDates = 18 * 7; // quantidade de quadrados totais na tela
+const daysToFill = minSummaryDates - summaryDates.length; // quantidade de quadrados necesários para completar o total de quadrados da tela
 
 export function Home() {
-  const [loading, setLoading] = useState(true);
-  const [summaryData, setSummaryData] = useState(null);
+  const [loading, setLoading] = useState(true); // estado do Loading
+  const [summaryData, setSummaryData] = useState(null); // estado dos dados do summary(bd)
   const { navigate } = useNavigation();
 
   async function fetchData() {
     try {
       setLoading(true);
-      const response = await api.get('/summary');
-      setSummaryData(response.data);
+      const response = await api.get('/summary'); // busca os dados do summary no back-end
+      setSummaryData(response.data); // salva os dados no estado
     } catch (error) {
       Alert.alert("Ops", "Não foi possível carregar os hábitos.");
       console.log(error);
@@ -50,6 +50,7 @@ export function Home() {
           </Text>
         ))}
       </View>
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 100 }}
@@ -72,6 +73,7 @@ export function Home() {
             ))}
         </View>
       </ScrollView>
+      
     </View>
   );
 }
