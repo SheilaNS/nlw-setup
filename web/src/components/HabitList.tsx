@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/axios";
 
 interface HabitListProps {
-  date: Date;
+  date: Date,
+  completedToggle: (total: number) => void
 }
 
 interface HabitsInfo {
@@ -17,7 +18,7 @@ interface HabitsInfo {
   completedHabits: string[];
 }
 
-export function HabitList({ date }: HabitListProps) {
+export function HabitList({ date, completedToggle }: HabitListProps) {
   const [habitsInfo, setHabitsInfo] = useState<HabitsInfo>();
   const pastDay = dayjs(date).endOf('day').isBefore(new Date());
 
@@ -46,7 +47,8 @@ export function HabitList({ date }: HabitListProps) {
     setHabitsInfo({
       possibleHabits: habitsInfo!.possibleHabits,
       completedHabits: completedList
-    })
+    });
+    completedToggle(completedList.length);
   }
 
   return (

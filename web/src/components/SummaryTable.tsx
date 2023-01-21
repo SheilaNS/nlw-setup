@@ -39,7 +39,7 @@ export function SummaryTable() {
       </div>
 
       <div className="grid grid-rows-7 grid-flow-col gap-3">
-        {summaryDates.map((date) => {
+        {summaryData.length > 0 && summaryDates.map((date) => {
           const summaryDay = summaryData.find((day) => dayjs(date).isSame(day.date, 'day'));
 
           return (
@@ -47,7 +47,7 @@ export function SummaryTable() {
             key={date.toString()}
             date={date}
             amount={summaryDay?.amount}
-            completed={summaryDay?.completed}
+            defaultCompleted={summaryDay?.completed}
           />
         )})}
         {daysToFill > 0 &&
