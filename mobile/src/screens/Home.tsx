@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { api } from "../lib/axios";
 import { generateRangeDates } from "../utils/generate-range-dates";
 import { Header } from "../components/Header";
+import { Loading } from "../components/Loading";
 import { DAY_SIZE, HabitDay } from "../components/HabitDay";
 
 const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
@@ -32,6 +33,8 @@ export function Home() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <View className="flex-1 bg-background pt-16 px-8">
