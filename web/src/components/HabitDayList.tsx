@@ -6,6 +6,7 @@ import { api } from "../lib/axios";
 
 interface HabitDayListProps {
   date: Date;
+  completedToggle: (completed: number) => void;
 }
 
 interface HabitsInfo {
@@ -17,7 +18,7 @@ interface HabitsInfo {
   completedHabits: string[];
 }
 
-export function HabitDayList({ date }: HabitDayListProps) {
+export function HabitDayList({ date, completedToggle }: HabitDayListProps) {
   const [habits, setHabits] = useState<HabitsInfo>();
   const pastDay = dayjs(date).endOf('day').isBefore(new Date());
 
@@ -49,6 +50,7 @@ export function HabitDayList({ date }: HabitDayListProps) {
       completedHabits: completedList,
       possibleHabits: habits!.possibleHabits,
     });
+    completedToggle(completedList.length);
   };
 
   return (

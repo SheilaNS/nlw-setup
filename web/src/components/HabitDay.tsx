@@ -3,20 +3,27 @@ import * as Popover from "@radix-ui/react-popover";
 import clsx from "clsx";
 import dayjs from "dayjs";
 import { Check } from "phosphor-react";
+import { useState } from "react";
 import { HabitDayList } from "./HabitDayList";
 import { ProgressBar } from "./ProgressBar";
 
 interface HabitDayProps {
   date: Date;
-  completed?: number;
+  defaultCompleted?: number;
   amount?: number;
 }
 
-export function HabitDay({ completed = 0, amount = 0, date }: HabitDayProps) {
+export function HabitDay({ defaultCompleted = 0, amount = 0, date }: HabitDayProps) {
+  const [completed, setCompleted] = useState(defaultCompleted);
+
   const completedPercentage = amount > 0 ? Math.round((completed / amount) * 100) : 0;
 
   const monthDay = dayjs(date).format('DD/MM');
   const weekDay = dayjs(date).format('dddd');
+
+  function handleCompletedToggle(completed: number) {
+    setCompleted(completed);
+  };
 
   return (
     <Popover.Root>
@@ -40,7 +47,7 @@ export function HabitDay({ completed = 0, amount = 0, date }: HabitDayProps) {
 
           <ProgressBar progress={completedPercentage} />
 
-          <HabitDayList date={date} />
+          <HabitDayList date={date} completedToggle={handleCompletedToggle} />
 
           <Popover.Arrow className="fill-zinc-900" height={8} width={16} />
         </Popover.Content>
