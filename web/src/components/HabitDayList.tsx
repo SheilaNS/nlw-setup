@@ -33,6 +33,23 @@ export function HabitDayList({ date }: HabitDayListProps) {
       });
   }, []);
 
+  async function handleToggle(habitId: string) {
+    await api.patch(`/habits/${habitId}/toggle`);
+
+    const isCompleted = habits!.completedHabits.includes(habitId);
+    let completedList: string[] = [];
+
+    if (isCompleted) {
+      completedList = habits!.completedHabits.filter((id) => id !== habitId);
+    } else {
+      completedList = [...habits!.completedHabits, habitId];      
+    }
+
+    setHabits({
+      completedHabits: completedList,
+      possibleHabits: habits!.possibleHabits,
+    });
+  };
 
   return (
     <div className="mt-6 flex flex-col gap-3">
@@ -42,6 +59,7 @@ export function HabitDayList({ date }: HabitDayListProps) {
           key={habit.id}
           checked={habits.completedHabits.includes(habit.id)}
           disabled={pastDay}
+          onCheckedChange={() => handleToggle(habit.id)}
           className="flex items-center gap-3 group"
           >
             <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
