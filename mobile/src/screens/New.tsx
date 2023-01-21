@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Alert,
   ScrollView,
   Text,
   TextInput,
@@ -10,6 +11,7 @@ import { Feather } from "@expo/vector-icons";
 import { BackButton } from "../components/BackButton";
 import { Checkbox } from "../components/Checkbox";
 import colors from "tailwindcss/colors";
+import { api } from "../lib/axios";
 
 const availableDays = [
   "Domingo",
@@ -23,6 +25,7 @@ const availableDays = [
 
 export function New() {
   const [weekDays, setWeekDays] = useState<number[]>([]);
+  const [title, setTitle] = useState('');
 
   function handleToggleWeekDays(weekDayIndex: number) {
     if (weekDays.includes(weekDayIndex)) {
@@ -31,6 +34,27 @@ export function New() {
       );
     } else {
       setWeekDays((prevState) => [...prevState, weekDayIndex]);
+    }
+  }
+
+  async function handleNewHabit() {
+    try {
+      if (!title.trim() || weekDays.length === 0) {
+        Alert.alert('Novo hábito', 'Informe o nome do novo hábito e a recorrência.');
+      }
+      
+      await api.post('/habits', {
+        title,
+        weekDays
+      })
+      
+      setTitle('');
+      setWeekDays([]);
+
+      Alert.alert('Novo hábito', 'Habito criado com sucesso!');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Ops', 'Não foi possível criar o novo hábito.');
     }
   }
 
@@ -52,6 +76,8 @@ export function New() {
           className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-green-600"
           placeholder="Exercícios, dormir bem, etc..."
           placeholderTextColor={colors.zinc[400]}
+          onChangeText={setTitle}
+          value={title}
         />
 
         <Text className="mt-4 mb-3 text-white font-semibold text-base">
@@ -69,6 +95,7 @@ export function New() {
         <TouchableOpacity
           className="w-full h-14 flex flex-row items-center justify-center bg-green-600 rounded-md mt-6"
           activeOpacity={0.7}
+          onPress={handleNewHabit}
         >
           <Feather name="check" size={20} color={colors.white} />
           <Text className="font-semibold text-base text-white ml-2">
