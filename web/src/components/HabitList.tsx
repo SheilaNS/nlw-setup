@@ -31,6 +31,24 @@ export function HabitList({ date }: HabitListProps) {
       .then((response) => setHabitsInfo(response.data));
   }, []);
 
+  async function handleToggle(habitId: string) {
+    await api.patch(`/habits/${habitId}/toggle`);
+
+    const isCompleted = habitsInfo!.completedHabits.includes(habitId);
+    let completedList: string[] = [];
+
+    if (isCompleted) {
+      completedList = habitsInfo!.completedHabits.filter((id) => id !== habitId);
+    } else {
+      completedList = [...habitsInfo!.completedHabits, habitId];
+    }
+
+    setHabitsInfo({
+      possibleHabits: habitsInfo!.possibleHabits,
+      completedHabits: completedList
+    })
+  }
+
   return (
     <div className="mt-6 flex flex-col gap-3">
       {habitsInfo?.possibleHabits.map((habit) => {
@@ -40,6 +58,7 @@ export function HabitList({ date }: HabitListProps) {
             key={habit.id}
             disabled={pastDay}
             checked={habitsInfo.completedHabits.includes(habit.id)}
+            onCheckedChange={() => handleToggle(habit.id)}
           >
             <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
               <Checkbox.Indicator>
