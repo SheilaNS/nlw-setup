@@ -20,4 +20,4 @@ Tecnologias que serão usadas:
 ## [Aula 02](https://github.com/SheilaNS/nlw-setup/tree/class-2): Agvançando o back-end e front-end
 ## [Aula 03](https://github.com/SheilaNS/nlw-setup/tree/class-3): Finalizando o layout web e mobile
 ## [Aula 04](https://github.com/SheilaNS/nlw-setup/tree/class-4): Conectando a API
-## Aula 05: O próximo nível
+## [Aula 05](https://github.com/SheilaNS/nlw-setup/tree/class-5-correta): O próximo nível
