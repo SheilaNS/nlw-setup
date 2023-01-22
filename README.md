@@ -19,12 +19,11 @@ Nessa edição, será desenvolvido um tracker de hábitos para o usuário poder 
 
 # Branches
 
-## [Aula 01](https://github.com/SheilaNS/nlw-setup/tree/class-1): Iniciando o projeto de ponta a ponta
-## [Aula 02](https://github.com/SheilaNS/nlw-setup/tree/class-2): Agvançando o back-end e front-end
-## [Aula 03](https://github.com/SheilaNS/nlw-setup/tree/class-3): Finalizando o layout web e mobile
-## [Aula 04](https://github.com/SheilaNS/nlw-setup/tree/class-4): Conectando a API
-## [Aula 05](https://github.com/SheilaNS/nlw-setup/tree/class-5-correta): O próximo nível
-<br>
+##### [Aula 01](https://github.com/SheilaNS/nlw-setup/tree/class-1): Iniciando o projeto de ponta a ponta
+##### [Aula 02](https://github.com/SheilaNS/nlw-setup/tree/class-2): Agvançando o back-end e front-end
+##### [Aula 03](https://github.com/SheilaNS/nlw-setup/tree/class-3): Finalizando o layout web e mobile
+##### [Aula 04](https://github.com/SheilaNS/nlw-setup/tree/class-4): Conectando a API
+##### [Aula 05](https://github.com/SheilaNS/nlw-setup/tree/class-5-correta): O próximo nível
 
 # Próximos passos
 - criar rotas de edit e delete habits
@@ -143,9 +142,8 @@ Nessa edição, será desenvolvido um tracker de hábitos para o usuário poder 
 └── README.md
   ```
 </details>
-<br>
 
-### Desenvolvedora Sheila Nakashima dos Santos
+#### Desenvolvedora Sheila Nakashima dos Santos
 <a href="https://wa.me/+5511995985416?text=Sheila%20Dev" target="_blank" rel="external"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" height="25px" /></a>
 <a href="https://www.linkedin.com/in/sheila-nakashima-dos-santos/" target="_blank" rel="external"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" height="25px" /></a>
 <a href="mailto:shei.nsantos@gmail.com" target="_blank" rel="external"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" height="25px" /></a>
