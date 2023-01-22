@@ -1,0 +1,80 @@
+Aula 01: Iniciando o projeto de ponta a ponta
+
+Back-end
+Node.Js é uma tecnologia que nos permite executar JavaScript no lado do back-end, do servidor.
+TypeScript é um super set que tras a tipagem estática para a linguagem JavaScript, isto é, tras inteligência para o nosso editor de código para ele poder identificar possíveis erros antes de mandar o código para produção.
+O pacote tsx nos permite executar um arquivo do node com typescript sem precisar fazer qualquer tipo de conversão desse arquivo.
+Para o tsx fazer a conversão toda hora que houver uma alteração no código, é só colocar no package.json:
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+API Restfull é uma API que provê vários recursos e acessos a entidades, funcionalidades, alteeração, criação, através de rotas http.
+Método HTTP: get(para buscar informação), post(cria alguma informação), put(atualiza algum recurso por completo), patch(atualiza uma informação específica de um recurso), delete(deleta uma informação/recurso)
+
+O banco de dados: 
+Prisma, é uma ORM, que permite utilizar qualquer tipo de banco de dados sem precisarmos nos preocupar com alterações de queries.
+
+A migration é o versionamento do banco de dados
+
+Cors é um mecanismo de segurança que diz quais aplicações vão poder acessar os dados do back-end do projeto.
+Sem configurar o cors, nenhum front-end conseguirá buscar os dados do back-end do projeto.
+Ao acicionar o cors no server, em produção é necessário configurar ele para liberar acesso aos dados apenas pelo localhost correto e esperado. Sem essa configuração, o cors libera qualquer aplicação para acessar os dados do back-end.
+app.register(cors, {
+  origin: ['<hppt://endereço autorizado>']
+})
+
+Front-end
+ViteJs é um template que nos tras pronto o que todas as aplicações front-end precisa para rodar, por exemplo, tem um build automática(esbuild), suporte ao TypeScript, ao jsx, etc.
+React é uma biblioteca para construção de interfaces de usuário, com o conteúdo HTML criado pelo JavaScript.
+Possui funções que retornam códigos HTML, que isolam uma parte do código ou que facilitam na replicação de códigos muito repetidos.
+Componente é tudo que podemos reaproveitar ou isolar
+Propriedades é uma informação enviada para modificar um componente visual ou comportamentalmente
+
+PostCSS é uma ferramente para automatizar tarefas dentro do CSS
+TailwindCSS é um plugin do PostCSS
+Autoprefixer é uma ferramenta que vai adicionar os prefixos de browser
+
+
+Mobile
+React Native, permite a criação de aplicativos de forma nativa para Android, iOS e muito mais utilizando o React.
+Expo torna fácil e rápido o ambiente de desenvolvimento para podermos focar no desenvolvimento da aplicação em si, sem precisar se preocupar com as configurações do ambiente.
+
+Configurando os assets
+splash.png é a imagem que aparece quando o aplicativo mobile esta sendo carregando
+
+No projeto do figma, selecionar a tela desejada, ir na opção 'Export' no canto direito inferior da tela, selecionar a opção PNG e clicar em 'Export Splash'
+
+Aula 02: Avançando o back-end e front-end
+
+Rotas
+get: para buscar informação
+post: cria alguma informação
+put: atualiza algum recurso por completo
+patch: atualiza uma informação específica de um recurso
+delete: deleta uma informação/recurso
+
+Request é o primeiro parâmetro da função como handler e por ele conseguimos obter várias informações:
+- body: encontramos o corpo da requisição, onde conseguimos informações quando estamos criando ou atualizando uma informação/recurso
+- params: são os parâmetros na rota, geralçmente utilizados para identificar algum recurso
+- query: parâmetros para paginação e/ou filtro
+
+Zod é um pacote de validação de dados que traz exatamente a tipagem do que queremos do front-end
+
+Front-end
+Componentizamos os elementos do App, inicializamos a tabela de hábitos, com os dias da semana e os dias que já passaram até a data atual
+
+Mobile
+Nativewind é a versão de tailwind para o React Native
+Depois da configuração e a criação do qrquivo Home.tsx é preciso tipar/identificar o className para a aplicação por que por padrão, o ReactNative não reconhece essa propriedade
+
+Aula 03: Finalizando o layout web e mobile
+
+Front-end
+Forma imperativa, programação tradicional com JS/HTML, onde indicamos exatamente cada passo que é preeciso executar para chegar no resultado que queremos.
+Forma declarativa, programação com React, criamos uma condição e reagimos a essa condição.
+
+Radix UI é uma biblioteca de componentes sem estilização totalmente acessíveis, isto é, com todas as regras de acessibilidade.
+
+CLSX é uma biblioteca que facilita a aplicação de classes condicionais na estilização de elementos

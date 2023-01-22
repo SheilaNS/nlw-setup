@@ -1,0 +1,61 @@
+Aula 01: comandos do terminal 
+
+Back-end:
+
+mkdir server
+cd server
+node -v
+nvm -v
+nvm install --lts
+nvm use --lts
+node -v
+npm install fastify
+npm install typescript -D
+npx tsc --init
+npm install tsx -D
+npm run dev
+npm install prisma -D
+npm install @prisma/client
+npx prisma init --datasource-provider SQLite
+npx prisma migrate dev
+nps prisma studio
+npm install @fastify/cors
+npm install -D prisma-erd-generator @mermaid-js/mermaid-cli
+npx prisma generate
+npx prisma db seed
+npm install zod
+npm install dayjs
+
+
+Front-end:
+
+npm create vite@latest -> <nome do projeto> -> React -> TypeScript
+npm install
+npm run dev
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm install phosphor-react
+npm install dayjs
+npm install @radix-ui/react-dialog
+npm install @radix-ui/react-popover
+npm install clsx
+npm install @radix-ui/react-checkbox
+npm install axios
+
+
+Mobile:
+npx create-expo-app mobile --template -> Blank(TypeScript)
+npx expo start
+npx expo start --clear
+npx expo install expo-font @expo-google-fonts/inter
+npm install nativewind
+npm install -D tailwindcss
+npx tailwindcss init
+npx expo install react-native-svg
+npm install react-native-svg-transformer -D
+npm install dayjs
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npm install @react-navigation/native-stack
+npm install axios
+npx expo install react-native-reanimated
