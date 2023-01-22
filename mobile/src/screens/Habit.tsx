@@ -9,6 +9,7 @@ import { Loading } from "../components/Loading";
 import { api } from "../lib/axios";
 import { generateProgress } from "../utils/generate-progress-percentage";
 import { HabitsEmpty } from "../components/HabitsEmpty";
+import clsx from "clsx";
 
 interface HabitParams {
   date: string;
@@ -34,6 +35,7 @@ export function Habit() {
   const parsedDate = dayjs(date);
   const weekDay = parsedDate.format("dddd");
   const monthDay = parsedDate.format("DD/MM");
+  const pastDay = parsedDate.endOf("day").isBefore(new Date());
 
   const dayProgress = dayInfo?.possibleHabits?.length
     ? generateProgress(dayInfo.possibleHabits.length, completedHabits.length)
@@ -88,7 +90,11 @@ export function Habit() {
 
         <ProgressBar progress={dayProgress} />
 
-        <View className="mt-6">
+        <View
+          className={clsx("mt-6", {
+            "opacity-50": pastDay,
+          })}
+        >
           {dayInfo?.possibleHabits ? (
             dayInfo.possibleHabits?.map((habit) => (
               <Checkbox
@@ -96,12 +102,19 @@ export function Habit() {
                 title={habit.title}
                 checked={completedHabits.includes(habit.id)}
                 onPress={() => handleToggle(habit.id)}
+                disabled={pastDay}
               />
             ))
           ) : (
             <HabitsEmpty />
           )}
         </View>
+
+        {pastDay && (
+          <Text className="text-white mt-10 text-center">
+            Você não pode editar um hábito em uma data passada.
+          </Text>
+        )}
       </ScrollView>
     </View>
   );
